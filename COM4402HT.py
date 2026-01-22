@@ -1,4 +1,4 @@
-print("Hello, welcome to the quiz!") #welcoming
+print("Hello, welcome to the quiz!")
 print("you'll answer 15 questions with each correct answer you receive a point")
 choice = input("A) maths, B) history, C) biology")
 choice = choice.upper()
