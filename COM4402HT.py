@@ -139,7 +139,7 @@ while amount_of_questions > 0: # loops until all the questions have been answere
                 print("Correct") #outputs correct
                 amount_of_questions = amount_of_questions - 1 #subtracts the amount of questions by 1 so when they've answered 15 the loop will break
             else:
-                total = total + 0  # total remains what it was before
+                total = total + 0  # total remains
                 print("Incorrect")
                 i = i + 1
                 amount_of_questions = amount_of_questions - 1
