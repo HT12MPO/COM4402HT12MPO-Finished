@@ -1,0 +1,186 @@
+print("Hello, welcome to the quiz!") #welcoming
+print("you'll answer 15 questions with each correct answer you receive a point")
+choice = input("A) maths, B) history, C) biology")
+choice = choice.upper()
+print("please type the answers as given and nit in ABCD form")
+total = 0
+amount_of_questions = 15
+i = 0
+
+question_askedM = {
+    "8^0 " : 1, #Q1
+    "42/7 " : 6, #Q2
+    "190 + (-30) " : 160, #Q3
+    "6^2 " : 36, #Q4
+    "7 * 7 " : 49,#Q5
+    "121^(1/2)" : 11,#Q6
+    "21 / 3 " : 7,#Q7
+    "10^3 " : 1000, #Q8
+    "11 * 11 " : 121, #Q9
+    "12^2 " : 144, #Q10
+    "15 * 5 " : 75, #Q11
+    "72 / 8 " : 9, #Q12
+    "11 * 12 " : 121, #Q13
+    "16 * 3 " : 48, #Q14
+    "17 - 19 " : -2, #Q15
+    "9^2 " : 81, #Q16
+}
+
+possible_answersM = ["1   0   8   0.5", #A1
+                     "5   6   7   8", #A2
+                     "220  60  160  70", #A3
+                     "22  12  16  36", #A4
+                     "49  47  46  42", #A5
+                     "10  11  12  13", #A6
+                     "7  8   9   6   ", #A7
+                     "10  10000  1000  100", #A8
+                    "111  121  130  120", #A9
+                     "141  144  151  120", #A10
+                     "65  80  75  70", #A11
+                     "8  6  7  9", #A12
+                     "111  121  130  120", #A13
+                     "46 44  48  42", #A14
+                     "2  -2  0  1", #A15
+                     "17  11  18  81"] #A16
+
+
+
+
+question_askedH = {
+    "When was world war 1" : 1914, #Q1
+    "When did world war 1 end " : 1918, #Q2
+    "what was the ship that sunk April 11th 1912 " : "titanic", #Q3
+    "What was Henry 8th son that came to the thrown " : "edward", #Q4
+    "What when the first name of henry 8th illigetment son called " : "henry", #Q5
+    "first name of henry's second wife" : "anne ", #Q6
+    "What was the first name of  Henry's 5th wife and Anne's cousin  " : "katherine", #Q7
+    "what is the first name of  Henry' 8th 'favourite wife' " : "jane", #Q8
+    "Who was the queen that rained after Henry " : "mary", #Q9
+    "What was the queen after mary " : "elizabeth", #Q10
+    "which queen has the second longest reign" : "victoria", #Q11
+    "how many Elizabeth have there been  " : 2, #Q12
+    "who was victories husband called " : "albert", #Q13
+    "when did victoria die " : 1901, #Q14
+    "was victoria short or tall " : "short", #Q15
+    "what country did victoria become the empress of " : "india", #Q16
+}
+possible_answersH = ["1912  1914  1916  1918", #A1
+                     "1916  1918  1920  1922", #A2
+                     "titanic  queen mary  ocean  st Patrick", #A3
+                     "henry  john  edward  oliver", #A4
+                     "henry  john  edward  oliver", #A5
+                     "katherine  jane  mary  anne", #A6
+                     "katherine  jane  mary  anne", #A7
+                     "katherine  jane  mary  anne", #A8
+                     "katherine  jane  mary  anne", #A9
+                     "elizabteh  victoria  mary  olivia", #A10
+                     "elizabteh  victoria  mary  olivia", #A11
+                     "2  3  1  4", #A12
+                     "edward  richard  albert  micheal", #A13
+                     "1900  1902  1903  1901", #A14
+                     "short  tall  average",#15
+                     "india  france  spain russia"] #A16
+
+
+
+
+
+question_askedB = {
+    "name the most common antibiotic " : "penicillin", #Q1
+    "what is the main organ to push blood around the body " : "heart", #Q2
+    "what is the biggest organ " : "skin", #Q3
+    "what part of the body does the immune system not know exists " : "eyes", #Q4
+    "where can you find a 'record' of substances you have taken " : "hair", #Q5
+    "what does a bacteria cell not have" : "nucleus ", #Q6
+    "what gives the cell energy  " : "mitochondria", #Q7
+    "what is used to stop bacteria cells' " : "antibiotic", #Q8
+    "is all bacteria bad " : "no", #Q9
+    "what is the biological male chromosome consist of" : "xy", #Q10
+    "what is the biological female chromosome consist of" : "xx", #Q11
+    "True or False - do animal  and plant  have identical cell structer " : "false", #Q12
+    "True or False - animals don't have cell walls " : "true", #Q13
+    "True or False - animal and plant cells have cell membranes" : "true", #Q14
+    "True or False- bacteria are called prokaryotes  " : "true", #Q15
+    "True or false - plant cells are eukaryotic " : "true", #Q16
+}
+
+
+possible_answersB = [" penicillin  paracetamol  ibruphem  vaccines", #A1
+                     "blood vessels,  heart  blood  lungs", #A2
+                     "heart  brain  kidney  skin", #A3
+                     "eyes  finger  muscle  bones" #A4
+                     "hair  finger nails  skin  toes", #A5
+                     " mitochondria  cell cellmenbrain  ribsons  nucleus", #A6
+                     "water  mitochondria  cell membrain  nucleus", #A7
+                     "antibiotic  paracetamol  ibruphem  vaccines", #A8
+                     "yes  no  maybe", #A9
+                     "xx  xy yy xyy", #A10
+                     "xx  xy yy xyy", #A11
+                     "True  False", #A12
+                     "True  False", #A13
+                     "True  False", #A14
+                     "True  False", #A15
+                     "True  False " #A16
+                     "True  False",
+                     "True False"
+                      ]
+
+
+while amount_of_questions > 0: # loops until all the questions have been answered
+    if choice == "A": # choice for maths
+        for key in question_askedM:  # choose the dictonary to read from, this being read line by line until all been read through
+            print(key) #outputs only the question (the key)
+            print(possible_answersM[i]) # prints the multy choice possible answers
+            answer = int(input("what is your answer? "))
+            if answer == question_askedM[key]: #compairing the answer from the user and the correct answer declared in question_asked
+                total = total + 1  # adds to the total
+                i = i + 1  # increments the space being read in possible_answerM in the set by 1
+                print("Correct") #outputs correct
+                amount_of_questions = amount_of_questions - 1 #subtracts the amount of questions by 1 so when they've answered 15 the loop will break
+            else:
+                total = total + 0  # total remains what it was before
+                print("Incorrect")
+                i = i + 1
+                amount_of_questions = amount_of_questions - 1
+
+    elif choice == "B":
+        for key in question_askedH:
+            print(key)
+            print(possible_answersH[i])
+            answer = input("what is your answer? ")
+            if answer == question_askedH[key]:
+                total = total + 1
+                i = i + 1
+                print("Correct")
+                amount_of_questions = amount_of_questions - 1
+            else:
+                total = total + 0
+                print("Incorrect")
+                i = i + 1
+                amount_of_questions = amount_of_questions - 1
+
+
+    elif choice == "C":
+        print("Incorrect")
+        for key in question_askedB:
+            print(key)
+            print(possible_answersB[i])
+            answer = input("what is your answer? ")
+            answer = answer.lower
+            if answer == question_askedB[key]:
+                total = total + 1
+                i = i + 1
+                print("Correct")
+                amount_of_questions = amount_of_questions - 1
+            else:
+                total = total + 0
+                print("Incorrect")
+                i = i + 1
+                amount_of_questions = amount_of_questions - 1
+
+
+    else:
+        print("not valid ask again") #not a valid input by user
+
+
+print(f"You answered {total} correctly")
